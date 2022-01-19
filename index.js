@@ -1,6 +1,12 @@
+const booksUrl = "https://anapioficeandfire.com/api/books"
+
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
-  
+  return fetch(booksUrl)
+    .then(resp => resp.json())
+    .then(books => renderBooks(books)
+    );
+
 }
 
 function renderBooks(books) {
@@ -12,6 +18,10 @@ function renderBooks(books) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   fetchBooks();
 });
+
+
+
+//1) renders book titles into the DOM by passing a JSON object to renderBooks()
